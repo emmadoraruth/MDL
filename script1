@@ -1,0 +1,20 @@
+constants blight .6 .5 .6 .6 .5 .6 .7 .6 .7
+push
+move 200 0 0
+move 0 50 0 knob1
+rotate x 30
+torus blight 0 0 0 130 25
+pop
+push
+rotate x 20
+rotate y 20
+box blight 50 70 100 70 70 70
+pop
+push
+sphere blight 200 200 -100 40
+pop
+light sun 200 200 200 100 100 0
+light ambience 0 0 0 0 0 100
+display
+basename scriptOne
+save scriptOne

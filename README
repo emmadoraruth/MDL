@@ -1,0 +1,181 @@
+Emma Dora Ruth Ziegellaub Eichler
+
+
+To compile:
+Type make
+
+To run:
+Type ./mdl [SCRIPT NAME]
+Type animate [BASENAME]*
+Note: for the users' convenience, the basename is just the script name with
+      the number spelled out (e.g., the script name script0 has basename
+      scriptZero).
+
+To test:
+Run with each of the following scripts to test designated features.
+script0
+- Description:
+  > This script animates two boxes for thirty frames. One box is 
+    rotated in the x, y, and z directions on knob knob and moved in the x and y 
+    directions on knob2. Its light properties are defined by the constant blight:
+    it is more sensitive to blue light than red and green, most sensitve to diffuse
+    light, least sensitive to ambient light, and has no rgb intensities of its own.
+    The other box is rotated in the y and z directions on knob3, moved in all
+    directions, and scaled equally in all directions on knob4. Its light properties
+    are defined by the constant flight: it is less sensitve to red light than green
+    and blue, most sensitive to diffuse light, least sensitive to ambient light, and
+    has red and green intensities of its own. There is red ambient light in the scene
+    and a mostly red light source with a little blue and even less green located
+    above the center of the screen.
+- Features:
+  > boxes
+  > x, y, & z rotations (with knobs)
+  > scale (with knob)
+  > moves (with & without knobs)
+  > light
+  > ambient
+  > constants (with & without intensities)
+
+script1
+- Description:
+  > This script renders, diplays, and saves as "scriptOne," an image of a box, torus, and sphere.
+    The y location of the torus is on a knob that can be changed by the user. The colors of the ambient
+    and specific light sources in this image are different.
+- Features:
+  > knob setting
+  > sphere
+  > torus
+  > box
+  > x & y rotations (with knobs & without knobs)
+  > moves (with & without knobs)
+  > light
+  > ambient
+  > constants
+
+script2
+- Description:
+  > This script animates a rotating sphere falling through a rotating torus. It uses
+    predefined light values which give both objects a slightly shiny appearance. It is
+    a good demonstration of z-buffering, as the front-facing polygons pass behind the torus.
+- Features:
+  > sphere
+  > torus
+  > x & y rotations (with knobs)
+  > moves (with & without knobs)
+  > light
+  > ambient
+  > constants
+
+Project Description:
+This project creates both animation and still images using boxes (rectangular
+prisms, spheres, and toruses), which are colored based on a three-way lighting
+model which accounts for diffuse, specular, and ambient light, as well as
+the properties of each individual object(both constants for each kind of light
+and intensities of the object itself). Objects may be animated using scaling,
+translations, and rotations in any of the three axes (x, y, and z). Hidden
+faces are, well, hidden, by both backface culling (which accounts for the
+fronts of shapes covering the backs) and z-buffering (which accounts for
+overlapping shapes and faces that are only partially exposed).
+
+
+Features Implemented:
+
+- Stack
+  > push
+  > pop
+- Transformations (with & without knobs)
+  > move
+  > scale
+  > rotate
+- Shapes (with & without constants)
+  > sphere
+  > torus
+  > box
+- Knobs
+  > set
+  > basename
+  > frames
+  > vary
+- Lighting
+  > light
+  > ambient
+  > constants
+- Miscellaneous
+  > save
+  > display
+
+
+Suggestions for Improvement*
+
+*If you, unlike I, have unlimited time
+- Light based on pixel instead of polygon for a more realistic image and to
+  solve the visible triangles problem
+- Scan line horizontally or vertically to avoid the missing pixel problem
+- Unlimited light sources (instead of just one)
+
+
+Files
+-----
+
+README 		- This file.
+
+PROJECT		- Instructions for using these parsers and 
+		  building your projects.
+
+MDL.spec	- The entire languange specification.
+
+matrix.c	- Stripped down matrix code (new_matrix, free_matrix,
+matrix.h	  print_matrix, and identity_matrix).
+
+parser.h	- Structures and definitions used by the parser.
+		  This defines the command array that the parser fills.
+
+symtab.h	- Symbol table routines. Structures are defined as well as
+symtab.c	  add_symbol, lookup_symbol, set_value, and utility
+		  symbol table printing routines.
+
+print_pcode.c	- Contains print_pcode. A routine that will print out
+		  the arry of commands that the parser fills. This
+		  is for testing and debugging purposes.
+
+my_main.c	- Contains my_main. Instead of changing the main() function
+my_main.h	  defined in mdl.y, you should modify this file.
+
+mdl.l		- Flex (lex) source file. Flex will use this file to build
+		  the lexical scanner.
+
+mdl.y		- Bison (yacc) source file. Bison will use this file to
+		  build the parser. This file also holds main(), you 
+		  can change that, but you do not need to if you use 
+		  my_main() as described above.
+
+mdl.tab.c	- Something produced by the Bison parser relating to the mdl
+		  language that Mr. Zamansky wrote and I have not altered.
+
+lex.yy.c	- The lexical scanner generated by flex.
+
+y.tab.c		- Something else produced by the Bison parser relating to the
+y.tab.h		  mdl language that Mr. Zamansky wrote and I have not altered.
+
+Makefile	- The project Makefile.
+
+ml6.h		- Contains the all-important definations of point,
+		  color, and screen.
+
+display.c	- Routines for saving images and displaying them
+display.h	  to the screen.
+
+draw.c		- The most intimidating files, containing routines to render,
+draw.h		  generate, and draw  boxes, spheres, and toruses (both solids
+		  and meshes) and calculate the lighting/color for each face of
+		  a solid object.
+
+stack.c		- Definition of stack struct and routines for basic stack
+stack.h		  functionality (push, pop, and initializer).
+
+vector.c	- Definition of vector struct and routines for operating
+vector.h	  with vectors.
+
+z_buffer.h	- Definitions of zval and zbuff structs, used for
+		  Z-Buffering to store z-values and colors in an array
+		  representing the screen.

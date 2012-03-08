@@ -1,0 +1,20 @@
+push
+move 200 200 0
+rotate x 180 knob
+constants blight .6 .5 .6 .6 .5 .6 .7 .6 .7
+//rotate y 360 knob
+torus blight 0 0 0 130 45
+pop
+push
+move 200 0 0
+move 0 400 0 knob2
+rotate x 360 knob
+sphere blight 0 0 0 40
+pop
+light sun 200 200 200 85 20 30
+light ambience 0 0 0 85 20 30
+//display
+basename scriptTwo
+frames 30
+vary knob 0 29 0 1
+vary knob2 0 29 0 1

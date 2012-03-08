@@ -1,0 +1,24 @@
+push
+move 110 150 0 knob2
+rotate x 350 knob
+rotate y 350 knob
+rotate z 350 knob
+constants blight .5 .8 .7 .5 .8 .7 .6 .9 .8
+box blight 0 0 0 80 80 80
+pop
+push
+move 150 150 200
+rotate y 350 knob3
+rotate z 350 knob3
+scale 1 1 1 knob4
+constants flight .3 .8 .4 .3 .9 .5 .3 .9 .5 30 10 0
+box flight 0 0 0 100 100 100
+pop
+light sun 200 200 200 85 10 20
+light ambience 0 0 0 85 0 0
+basename scriptZero
+frames 30
+vary knob 0 29 0 1
+vary knob2 0 29 .5 2
+vary knob3 0 29 0 1
+vary knob4 0 29 .2 1
